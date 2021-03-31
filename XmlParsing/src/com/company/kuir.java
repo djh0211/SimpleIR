@@ -1,8 +1,12 @@
 package com.company;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 
 public class kuir {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
 
         String arg = args[0];
         if (arg.equals("-c")) {
@@ -20,6 +24,13 @@ public class kuir {
                 makeKeyword mk = new makeKeyword();
                 mk.mkword(collection);
             }
+        } else if (arg.equals("-i")) {
+            if (args[1] != null) {
+                String index_dir = args[1];
+                indexer ind = new indexer();
+                ind.Hashmap(index_dir);
+            }
         }
+
     }
 }
