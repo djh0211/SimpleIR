@@ -36,7 +36,7 @@ public class kuir {
                 String p_dir = args[1];
                 String query = args[3];
                 searcher searcher = new searcher();
-                ArrayList<Double> sim = searcher.Calcsim(query, p_dir);
+                ArrayList<Double> sim = searcher.InnerProduct(query, p_dir);
                 searcher.printTitle(sim, "/Users/hadongjun/Documents/SimpleIR/collection.xml");
 
             }
