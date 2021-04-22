@@ -37,10 +37,12 @@ public class kuir {
                 String query = args[3];
                 searcher searcher = new searcher();
                 ArrayList<Double> sim = searcher.CalcSim(query, p_dir);
+
                 searcher.printTitle(sim, "/Users/hadongjun/Documents/SimpleIR/collection.xml");
 
             }
         }
+
 
     }
 }

@@ -51,6 +51,7 @@ public class searcher {
             double size_tf = 0.0;
             double size_weight = 0.0;
             double cos = 0.0;
+
             for (String key : map_word.keySet()) {
                 String[] split_tf = map_word.get(key).split("/");
                 double tf = Double.parseDouble(split_tf[0]);
@@ -69,6 +70,7 @@ public class searcher {
                 cos = 0;
             }
             result.put(id, String.format("%.2f", cos));
+
         }
 
         ArrayList<Double> sim = new ArrayList<>();
@@ -103,6 +105,7 @@ public class searcher {
             if (copy_sim.get(i) == 0){
                 continue;
             }
+
             int index = sim.indexOf(copy_sim.get(i));
             if (list_index.contains(index) && c == 0) {
                 for (int j = 0; j < 5; j++) {
