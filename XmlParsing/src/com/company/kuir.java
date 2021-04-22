@@ -4,9 +4,10 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class kuir {
-    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
+    public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, ClassNotFoundException {
 
         String arg = args[0];
         if (arg.equals("-c")) {
@@ -29,6 +30,15 @@ public class kuir {
                 String index_dir = args[1];
                 indexer ind = new indexer();
                 ind.Hashmap(index_dir);
+            }
+        }else if(arg.equals("-s")) {
+            if (args.length > 2 && args[2].equals("-q")) {
+                String p_dir = args[1];
+                String query = args[3];
+                searcher searcher = new searcher();
+                ArrayList<Double> sim = searcher.CalcSim(query, p_dir);
+                searcher.printTitle(sim, "/Users/hadongjun/Documents/SimpleIR/collection.xml");
+
             }
         }
 
